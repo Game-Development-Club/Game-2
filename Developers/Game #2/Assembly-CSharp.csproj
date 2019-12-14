@@ -65,7 +65,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Managers\PuzzleManager.cs" />
-    <Compile Include="Assets\Scripts\Mechanics\Player\TestScript.cs" />
     <Reference Include="Unity.XR.Management">
       <HintPath>C:/Users/esteb/Documents/GitHub/Game-2/Developers/Game #2/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
     </Reference>
