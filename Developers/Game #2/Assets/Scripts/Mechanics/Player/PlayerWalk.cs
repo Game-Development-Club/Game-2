@@ -7,7 +7,7 @@ public class PlayerWalk : MonoBehaviour
     /*
      * YOU CAN REMOVE THIS MESSAGE ONCE UR DONE
      * 
-     * Hey guys good luck with the script :)
+     * Hey good luck with the script :)
      * - Esteban
      * 
      * Remember if you guys need help make sure to message me on discord just ping me or DM me
@@ -18,7 +18,7 @@ public class PlayerWalk : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
 
     private void Update()
