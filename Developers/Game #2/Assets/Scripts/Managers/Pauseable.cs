@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pauseable : GameManager
+public abstract class Pauseable : GameManager
 {
     protected virtual void OnEnable()
     {

@@ -10,7 +10,7 @@ public class CutScene : Pauseable
 
     private void Start()
     {
-        Debug.Log("Hi!");
+
     }
 
     protected void OnCollisionEnter2D(Collision2D collision)

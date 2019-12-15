@@ -10,16 +10,18 @@ public class GameManager : MonoBehaviour
     protected static event PauseEvent OnGamePause;
     protected static event PauseEvent OnGameResume;
 
+    public bool isGamePaused;
+
     private void Start()
     {
         if (instance == null) instance = this;
-
-        Debug.Log("HI");
     }
 
     public void PauseGame()
     {
         OnGamePause?.Invoke();
+
+        isGamePaused = true;
 
         Time.timeScale = 0;
     }
@@ -27,6 +29,8 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         OnGameResume?.Invoke();
+
+        isGamePaused = false;
 
         Time.timeScale = 1;
     }
