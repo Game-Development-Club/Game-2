@@ -4,9 +4,14 @@ using UnityEngine;
 using UnityEngine.Playables;
 
 [RequireComponent(typeof(PlayableDirector))]
-public class CutScene : MonoBehaviour
+public class CutScene : Pauseable
 {
     private PlayableDirector cutscene;
+
+    private void Start()
+    {
+        Debug.Log("Hi!");
+    }
 
     protected void OnCollisionEnter2D(Collision2D collision)
     {
@@ -19,5 +24,17 @@ public class CutScene : MonoBehaviour
     protected virtual void OnCutSceneEnd()
     {
 
+    }
+
+    protected override void OnGamePause()
+    {
+        base.OnGamePause();
+        Debug.Log("This cutscene was paused!");
+    }
+
+    protected override void OnGameResume()
+    {
+        base.OnGamePause();
+        Debug.Log("This cutscene was paused!");
     }
 }
