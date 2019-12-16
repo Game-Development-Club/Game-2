@@ -16,13 +16,7 @@ public abstract class Pauseable : GameManager
         GameManager.OnGameResume -= OnGameResume;
     }
 
-    protected new virtual void OnGamePause()
-    {
+    protected abstract new void OnGamePause();
 
-    }
-
-    protected new virtual void OnGameResume()
-    {
-
-    }
+    protected abstract new void OnGameResume();
 }

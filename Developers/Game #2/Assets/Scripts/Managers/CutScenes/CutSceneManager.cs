@@ -23,7 +23,7 @@ public class CutSceneManager : MonoBehaviour
         CheckForCutSceneEnd();
     }
 
-    public void LoadCutScene(PlayableDirector cutscene, Action onCutSceneEndOrSkip)
+    public void PlayCutScene(PlayableDirector cutscene, Action onCutSceneEndOrSkip)
     {
         cutSceneIsPlaying = true;
 
