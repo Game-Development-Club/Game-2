@@ -12,7 +12,13 @@ public class CutScene : MonoBehaviour
     private BoxCollider2D bc;
 
     public bool postAction;
-    public string postActionName;
+    
+    public enum Actions
+    {
+        Test
+    }
+
+    public Actions action;
 
     private void Start()
     {
@@ -36,11 +42,11 @@ public class CutScene : MonoBehaviour
         Type type = typeof(PostActions);
         object instance = Activator.CreateInstance(type);
 
-        MethodInfo method = type.GetMethod(postActionName + "_CutScenePostAction");
+        MethodInfo method = type.GetMethod(action.ToString() + "_CutScenePostAction");
 
         if (method == null)
         {
-            Debug.LogError("The post execution named " + postActionName + " does not exist!");
+            Debug.LogError("The post execution named " + action.ToString() + " does not exist!");
             return;
         }
 
