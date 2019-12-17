@@ -12,25 +12,30 @@ public class CutScene : MonoBehaviour
     private BoxCollider2D bc;
 
     public bool postAction;
-    
+
+    public Actions action;
+
     public enum Actions
     {
         Test
     }
 
-    public Actions action;
-
     private void Start()
     {
         cutscene = GetComponent<PlayableDirector>();
         bc = GetComponent<BoxCollider2D>();
+
+        if (cutscene.playOnAwake)
+        {
+            CutSceneManager.instance.RegisterAwakeCutScene(cutscene, OnCutSceneEnd);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
-            CutSceneManager.instance.PlayCutScene(cutscene, OnCutSceneEnd);
+            if (!cutscene.playOnAwake) CutSceneManager.instance.PlayCutScene(cutscene, OnCutSceneEnd);
             bc.enabled = false;
         }
     }

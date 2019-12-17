@@ -7,7 +7,7 @@ using UnityEngine.Playables;
 public class CutSceneManager : MonoBehaviour
 {
     public static CutSceneManager instance;
-    public bool cutSceneIsPlaying;
+    [HideInInspector] public bool cutSceneIsPlaying;
     private bool cutSceneIsFinished;
 
     private PlayableDirector currentCutScene;
@@ -25,12 +25,32 @@ public class CutSceneManager : MonoBehaviour
 
     public void PlayCutScene(PlayableDirector cutscene, Action onCutSceneEndOrSkip)
     {
+        if (cutSceneIsPlaying) return;
         cutSceneIsPlaying = true;
 
         cutscene.Play();
 
         currentCutScene = cutscene;
         currentAction = onCutSceneEndOrSkip;
+    }
+
+    public void RegisterAwakeCutScene(PlayableDirector cutscene, Action onCutSceneEndOrSkip)
+    {
+        if (cutSceneIsPlaying) return;
+
+        cutSceneIsPlaying = true;
+
+        currentCutScene = cutscene;
+        currentAction = onCutSceneEndOrSkip;
+    }
+
+    public void SkipCutScene()
+    {
+        cutSceneIsPlaying = false;
+
+        //Implement fade transition here
+
+        currentAction?.Invoke();
     }
 
     private void CheckForCutSceneEnd()

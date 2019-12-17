@@ -8,4 +8,9 @@ public class PostActions
     {
         Debug.Log("This worked!");
     }
+
+    public void Puzzle1536_CutScenePostAction()
+    {
+
+    }
 }

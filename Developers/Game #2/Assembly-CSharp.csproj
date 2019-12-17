@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Managers\Pauseable.cs" />
     <Compile Include="Assets\Scripts\Managers\Puzzles\Puzzle.cs" />
     <Compile Include="Assets\Scripts\Managers\Puzzles\PuzzleManager.cs" />
+    <Compile Include="Assets\Scripts\Player\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerWalk.cs" />
     <Reference Include="Unity.XR.Management">
       <HintPath>C:/Users/esteb/Documents/GitHub/Game-2/Developers/Game #2/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
