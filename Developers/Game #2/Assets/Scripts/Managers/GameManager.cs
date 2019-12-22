@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public delegate void PauseEvent();
-    protected static event PauseEvent OnGamePause;
-    protected static event PauseEvent OnGameResume;
+    public static event PauseEvent OnGamePause;
+    public static event PauseEvent OnGameResume;
 
     [HideInInspector] public bool isGamePaused;
 

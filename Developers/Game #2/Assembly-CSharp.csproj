@@ -63,11 +63,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Abstract Objects\PauseableObject.cs" />
     <Compile Include="Assets\Scripts\Managers\CutScenes\CutScene.cs" />
     <Compile Include="Assets\Scripts\Managers\CutScenes\CutSceneManager.cs" />
     <Compile Include="Assets\Scripts\Managers\CutScenes\PostActions.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Managers\Pauseable.cs" />
     <Compile Include="Assets\Scripts\Managers\Puzzles\Puzzle.cs" />
     <Compile Include="Assets\Scripts\Managers\Puzzles\PuzzleManager.cs" />
     <Compile Include="Assets\Scripts\Player\CameraFollow.cs" />
