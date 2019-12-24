@@ -6,22 +6,35 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public delegate void PauseEvent();
-    public static event PauseEvent OnGamePause;
-    public static event PauseEvent OnGameResume;
+    private static List<IPauseable> pauseableObjects;
 
     [HideInInspector] public bool isGamePaused;
 
     private void Start()
     {
         if (instance == null) instance = this;
+
+        pauseableObjects = new List<IPauseable>();
+    }
+
+    private void Update()
+    {
+
+    }
+
+    public static void RegisterPauseableObject(IPauseable obj)
+    {
+        pauseableObjects.Add(obj);
     }
 
     public void PauseGame()
     {
         if (isGamePaused) return;
 
-        OnGamePause?.Invoke();
+        foreach (IPauseable pauseableObj in pauseableObjects)
+        {
+            pauseableObj.OnGamePause();
+        }
 
         isGamePaused = true;
 
@@ -32,7 +45,10 @@ public class GameManager : MonoBehaviour
     {
         if (!isGamePaused) return;
 
-        OnGameResume?.Invoke();
+        foreach (IPauseable pauseableObj in pauseableObjects)
+        {
+            pauseableObj.OnGameResume();
+        }
 
         isGamePaused = false;
 

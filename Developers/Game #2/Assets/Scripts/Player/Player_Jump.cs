@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Player_Jump : MonoBehaviour
 {
-
     public float jumpForce;
-    private float moveInput;
     private Rigidbody2D rb;
 
     private bool isGrounded;
@@ -17,19 +15,16 @@ public class Player_Jump : MonoBehaviour
     private float jumpTimeCounter;
     public float jumpTime;
     private bool isJumping;
-    // Start is called before the first frame update
+
     void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-      
-    }
     void Update()
     {
+        var moveInput = 0;
+
         isGrounded = Physics2D.OverlapCircle(feetpos.position, checkRadius, WhatIsGround);
 
         if (moveInput > 0)
@@ -65,6 +60,5 @@ public class Player_Jump : MonoBehaviour
         {
             isJumping = false;
         }
-
     }
 }
