@@ -10,8 +10,6 @@ public class PlayerWalk : MonoBehaviour, IPauseable
 
     void Start()
     {
-        GameManager.RegisterPauseableObject(this);
-
         rb = GetComponent<Rigidbody2D>();
     }
 
