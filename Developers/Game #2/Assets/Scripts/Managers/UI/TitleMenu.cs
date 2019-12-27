@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class TitleMenu : Menu
 {
-
+    public void OnAboutClick()
+    {
+        Debug.Log("HI");
+    }
 }

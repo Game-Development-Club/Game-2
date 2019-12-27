@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public abstract class Menu : MonoBehaviour
+public class Menu : MonoBehaviour
 {
     protected static List<Canvas> screens;
 
@@ -20,24 +20,10 @@ public abstract class Menu : MonoBehaviour
             canvas.gameObject.SetActive(false);
         }
 
-        if (openOnStart) Open();
+        if (openOnStart) OpenScreen(startScreen);
     }
 
     #region Screen Management
-
-    protected void Open()
-    {
-        OpenScreen(startScreen);
-    }
-
-    protected static void OpenScreen(string screen)
-    {
-        Canvas scr = screens.Find(s => s.gameObject.name == screen);
-
-        CloseAllScreens();
-
-        scr.gameObject.SetActive(true);
-    }
 
     public void OpenScreen(Canvas screen)
     {
@@ -46,23 +32,14 @@ public abstract class Menu : MonoBehaviour
         screen.gameObject.SetActive(true);
     }
 
-    protected static void Close()
+    public void Close()
     {
         CloseAllScreens();
     }
 
-    private static void CloseAllScreens()
+    private void CloseAllScreens()
     {
         foreach (Canvas canvas in screens) canvas.gameObject.SetActive(false);
-    }
-
-    #endregion
-
-    #region Input Management
-
-    public void E()
-    {
-
     }
 
     #endregion
