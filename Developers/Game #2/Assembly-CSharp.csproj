@@ -64,6 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Abstract Objects\IPauseable.cs" />
+    <Compile Include="Assets\Scripts\Managers\Audio\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\Audio\Sound.cs" />
     <Compile Include="Assets\Scripts\Managers\CutScenes\CutScene.cs" />
     <Compile Include="Assets\Scripts\Managers\CutScenes\CutSceneManager.cs" />
     <Compile Include="Assets\Scripts\Managers\CutScenes\PostActions.cs" />

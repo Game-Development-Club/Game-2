@@ -5,7 +5,7 @@ using TMPro;
 
 public class Menu : MonoBehaviour
 {
-    protected static List<Canvas> screens;
+    public static List<Canvas> screens;
 
     public Canvas startScreen;
     public bool openOnStart;
@@ -23,8 +23,6 @@ public class Menu : MonoBehaviour
         if (openOnStart) OpenScreen(startScreen);
     }
 
-    #region Screen Management
-
     public void OpenScreen(Canvas screen)
     {
         CloseAllScreens();
@@ -41,6 +39,4 @@ public class Menu : MonoBehaviour
     {
         foreach (Canvas canvas in screens) canvas.gameObject.SetActive(false);
     }
-
-    #endregion
 }

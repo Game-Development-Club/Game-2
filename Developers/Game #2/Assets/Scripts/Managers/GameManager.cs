@@ -8,18 +8,17 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    private static List<IPauseable> pauseableObjects  = new List<IPauseable>();
+    private static List<IPauseable> pauseableObjects;
 
     [HideInInspector] public bool isGamePaused;
 
     private void Start()
     {
-        if (instance == null) instance = this;
-    }
-
-    private void Update()
-    {
-
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     private void OnEnable()
@@ -34,6 +33,8 @@ public class GameManager : MonoBehaviour
 
     private void OnLevelLoaded(Scene loaded, LoadSceneMode mode)
     {
+        pauseableObjects = new List<IPauseable>();
+
         foreach (IPauseable obj in FindObjectsOfType<MonoBehaviour>().OfType<IPauseable>())
         {
             pauseableObjects.Add(obj);
