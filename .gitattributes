@@ -1,1 +1,2 @@
 *.shader linguist-language=C#
+*.cginc linguist-language=C#
