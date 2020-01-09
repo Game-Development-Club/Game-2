@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 86025831}
   - component: {fileID: 86025830}
   - component: {fileID: 86025833}
+  - component: {fileID: 86025834}
   m_Layer: 0
   m_Name: Manangers
   m_TagString: Untagged
@@ -193,6 +194,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cutSceneIsPlaying: 0
+--- !u!114 &86025834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86025829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15cba20957429f745a1836633aec73ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: E
+    clip: {fileID: 8300000, guid: 81fccc0bce99b0f4cb20dfad73c8dd9f, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
