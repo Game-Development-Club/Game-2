@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour
             pauseableObj.OnGamePause();
         }
 
+        AudioManager.instance.PauseAll();
+
         isGamePaused = true;
 
         Time.timeScale = 0;
@@ -63,6 +65,8 @@ public class GameManager : MonoBehaviour
         {
             pauseableObj.OnGameResume();
         }
+
+        AudioManager.instance.UnPauseAll();
 
         isGamePaused = false;
 

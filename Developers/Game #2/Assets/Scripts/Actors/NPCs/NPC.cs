@@ -43,7 +43,7 @@ public class NPC : MonoBehaviour
 
             isSpeaking = true;
 
-            DialogManager.instance.StartNPCDialogSequence(pos, dialogSequence, () =>
+            DialogManager.instance.StartNPCDialogSequence(transform, dialogHeight, dialogSequence, () =>
             {
                 isSpeaking = false;
                 if (action != Actions.None) Invoke(action.ToString(), 0f);

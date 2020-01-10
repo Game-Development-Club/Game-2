@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -11,13 +12,8 @@ public class AudioManager : MonoBehaviour
     private List<Sound> pausedSounds;
     public Sound[] sounds;
 
-    private bool audioIsGloballyPaused;
-
     private void Start()
     {
-        activeSounds = new List<Sound>();
-        pausedSounds = new List<Sound>();
-
         if (instance == null)
         {
             instance = this;
@@ -35,6 +31,22 @@ public class AudioManager : MonoBehaviour
                 Destroy(sound.source);
             }
         }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnLevelLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnLevelLoaded;
+    }
+
+    private void OnLevelLoaded(Scene loaded, LoadSceneMode mode)
+    {
+        activeSounds = new List<Sound>();
+        pausedSounds = new List<Sound>();
     }
 
     public void Play(string name, bool isLooping)

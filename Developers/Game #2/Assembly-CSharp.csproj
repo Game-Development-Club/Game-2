@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Managers\CutScenes\PostActions.cs" />
     <Compile Include="Assets\Scripts\Managers\Dialog\DialogManager.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\ParallaxScrolling.cs" />
     <Compile Include="Assets\Scripts\Managers\Puzzles\Puzzle.cs" />
     <Compile Include="Assets\Scripts\Managers\Puzzles\PuzzleManager.cs" />
     <Compile Include="Assets\Scripts\Managers\UI\Menu.cs" />

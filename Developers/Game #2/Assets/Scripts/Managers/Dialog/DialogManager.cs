@@ -9,7 +9,7 @@ public class DialogManager : MonoBehaviour
 {
     public static DialogManager instance;
 
-    private Dictionary<GameObject, Vector3> activeTexts;
+    private Dictionary<GameObject, Tuple<Transform, float>> activeTexts;
 
     [Header("Dialog Assets")]
     public GameObject canvas;
@@ -22,7 +22,7 @@ public class DialogManager : MonoBehaviour
 
     private void Start()
     {
-        activeTexts = new Dictionary<GameObject, Vector3>();
+        activeTexts = new Dictionary<GameObject, Tuple<Transform, float>>();
 
         if (instance == null)
         {
@@ -33,9 +33,12 @@ public class DialogManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        foreach (KeyValuePair<GameObject, Vector3> pair in activeTexts)
+        foreach (KeyValuePair<GameObject, Tuple<Transform, float>> pair in activeTexts)
         {
-            pair.Key.transform.position = Camera.main.WorldToScreenPoint(pair.Value);
+            Vector3 pos = pair.Value.Item1.position;
+            pos.y += pair.Value.Item2;
+
+            pair.Key.transform.position = Camera.main.WorldToScreenPoint(pos);
         }
     }
 
@@ -54,7 +57,7 @@ public class DialogManager : MonoBehaviour
         canvasInstance = Instantiate(canvas);
     }
 
-    public void StartNPCDialogSequence(Vector3 triggerPosition, TextAsset dialog, Action onSpeakingFinish)
+    public void StartNPCDialogSequence(Transform triggerPosition, float dialogHeight, TextAsset dialog, Action onSpeakingFinish)
     {
         if (dialog == null)
         {
@@ -64,15 +67,14 @@ public class DialogManager : MonoBehaviour
 
         string fixedText = dialog.text.Replace("\n", string.Empty);
 
-        StartCoroutine(Type(CreateTextContainer(triggerPosition), fixedText, onSpeakingFinish));
+        StartCoroutine(Type(CreateTextContainer(triggerPosition, dialogHeight), fixedText, onSpeakingFinish));
     }
 
-    private TextMeshProUGUI CreateTextContainer(Vector3 triggerPosition)
+    private TextMeshProUGUI CreateTextContainer(Transform triggerPosition, float dialogHeight)
     {
         GameObject textObject = Instantiate(textContainer, canvasInstance.transform);
-        activeTexts.Add(textObject, triggerPosition);
+        activeTexts.Add(textObject, new Tuple<Transform, float>(triggerPosition, dialogHeight));
 
-        textObject.transform.position = Camera.main.WorldToScreenPoint(triggerPosition);
         return textObject.GetComponent<TextMeshProUGUI>();
     }
 
