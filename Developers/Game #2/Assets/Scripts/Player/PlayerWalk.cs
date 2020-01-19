@@ -13,9 +13,9 @@ public class PlayerWalk : MonoBehaviour, IPauseable
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        var move = Input.GetAxis("Horizontal");
+        float move = Input.GetAxisRaw("Horizontal");
 
         rb.velocity = new Vector2(speed * move, rb.velocity.y);
     }

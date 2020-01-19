@@ -35,10 +35,7 @@ public class PlayerJump : MonoBehaviour
             }
         } else
         {
-            if (isInAir)
-            {
-                canJump = false;
-            }
+            if (isInAir) canJump = false;
         }
 
         if (isInAir)
